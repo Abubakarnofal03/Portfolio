@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: space-between; /* Adjusts spacing between logo and links */
+            align-items: center;
+            background-color: black;
+            padding: 10px;
+            font-weight: bolder;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin-right: 350px;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            display: inline;
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: large;
+            color: white;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color:white;
+        }
+
+        .logo img {
+            width: 100px;
+        }
+
+
+        .bodyy {
+          background-image:url(background.jpg);
+          background-size: cover;
+            /* background: rgb(16,10,92);
+            background: -moz-linear-gradient(174deg, rgba(16,10,92,1) 0%, rgba(170,0,182,1) 61%, rgba(38,119,135,1) 100%);
+            background: -webkit-linear-gradient(174deg, rgba(16,10,92,1) 0%, rgba(170,0,182,1) 61%, rgba(38,119,135,1) 100%);
+            background: linear-gradient(174deg, rgba(16,10,92,1) 0%, rgba(170,0,182,1) 61%, rgba(38,119,135,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#100a5c",endColorstr="#267787",GradientType=1); */
+            position: relative;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .cursor {
+            width: 30px;
+            height: 30px;
+            background-color: rgb(3, 255, 24);
+            border-radius: 50%;
+            position: absolute;
+            z-index: 999;
+        }
+
+        .outerdiv {
+          width: 90%;
+          height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* background-color: rgb(15, 211, 255); */
+            border-radius: 10px;
+            /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+        }
+
+        .centraldiv {
+            text-align: center;
+            display: flex;
+            flex-direction:column;
+            align-items: center;
+            justify-content: center; 
+        }
+
+        .innerpdiv {
+            /* background-color: rgb(15, 91, 255); */
+            color: rgb(20, 155, 245);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            margin-right: 10px;
+            margin-top: 40px;
+            font-weight: bold;
+            font-size: larger;
+        }
+
+        .innerpdiv p {
+            margin: 0;
+        }
+
+        .centraldiv h1 {
+            margin-bottom: 50px;
+            color: rgb(255, 250, 250);
+        }
+
+        .centraldiv img {
+          max-width: fit-content;
+            max-width:30%;
+            border-radius: 10px;
+            margin-left: 800px; 
+            
+            
+        }
+
+        .buttonsbelow {
+            display:flex;
+            justify-content: center;
+            margin-top: 400px; /* Add margin to separate buttons from content above */
+        }
+
+        .buttonsbelow button {
+            margin: 0px 10px; /* Add margin between buttons */
+            padding: 10px 40px; /* Add padding to buttons */
+            background-color: rgb(88, 21, 222);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .buttonsbelow button:hover {
+            background-color: rgb(68, 11, 182);
+        }
+        
+        /* Fancy button styles */
+        .fancy {
+            background-color: transparent;
+            border: 2px solid #000000;
+            border-radius: 0;
+            box-sizing: border-box;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            /* float: right; */
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin: 15px;
+            outline: none;
+            overflow: visible;
+            padding: 1.25em 2em;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            text-transform: none;
+            transition: all 0.3s ease-in-out;
+            user-select: none;
+            font-size: 12px;
+        }
+
+        .fancy::before {
+            content: " ";
+            width: 1.5625rem;
+            height: 2px;
+            background: rgb(251, 251, 251);
+            top: 50%;
+            left: 1.5em;
+            position: absolute;
+            transform: translateY(-50%);
+            transform-origin: center;
+            /* transition:backg0.3s linear, width 0.3s linear; */
+        }
+
+        .fancy .text {
+            font-size: 1.125em;
+            line-height: 1.33333em;
+            padding-left: 2em;
+            display: block;
+            text-align: left;
+            transition: all 0.3s ease-in-out;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: rgb(222, 251, 2);
+        }
+
+        .fancy .top-key {
+            height: 2px;
+            width: 1.5625rem;
+            top: -2px;
+            left: 0.625rem;
+            position: absolute;
+            background: #e8e8e8;
+            transition: width 0.5s ease-out, left 0.3s ease-out;
+        }
+
+        .fancy .bottom-key-1 {
+            height: 2px;
+            width: 1.5625rem;
+            right: 1.875rem;
+            bottom: -2px;
+            position: absolute;
+            background: #e8e8e8;
+            transition: width 0.5s ease-out, right 0.3s ease-out;
+        }
+
+        .fancy .bottom-key-2 {
+            height: 2px;
+            width: 0.625rem;
+            right: 0.625rem;
+            bottom: -2px;
+            position: absolute;
+            background: #e8e8e8;
+            transition: width 0.5s ease-out, right 0.3s ease-out;
+        }
+
+        .fancy:hover {
+            color: white;
+            background: rgb(132, 134, 44);
+        }
+
+        .fancy:hover::before {
+            width: 0.9375rem;
+            background: white;
+        }
+
+        .fancy:hover .text {
+            color: white;
+            padding-left: 1.5em;
+        }
+
+        .fancy:hover .top-key {
+            left: -2px;
+            width: 0px;
+        }
+
+        .fancy:hover .bottom-key-1,
+        .fancy:hover .bottom-key-2 {
+            right: 0;
+            width: 0;
+        }
+        .animated-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 36px;
+  border: 4px solid;
+  border-color: transparent;
+  font-size: 16px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  color: greenyellow;
+  box-shadow: 0 0 0 2px greenyellow;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button svg {
+  position: absolute;
+  width: 24px;
+  fill: greenyellow;
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1 {
+  right: 16px;
+}
+
+.animated-button .arr-2 {
+  left: -25%;
+}
+
+.animated-button .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: greenyellow;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: #212121;
+  border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 {
+  right: -25%;
+}
+
+.animated-button:hover .arr-2 {
+  left: 16px;
+}
+
+.animated-button:hover .text {
+  transform: translateX(12px);
+}
+
+.animated-button:hover svg {
+  fill: #212121;
+}
+
+.animated-button:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px greenyellow;
+}
+
+.animated-button:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
+.colors h1
+{
+  display: inline;
+}
+
+  </style>
+</head>
+<body class="bodyy">
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.jpeg">
+        </div>
+        <ul>
+            <li><a class="fancy" href="about.html"><span class="top-key"></span><span class="text">About</span><span class="bottom-key-1"></span><span class="bottom-key-2"></span></a></li>
+            <li><a class="fancy" href="https://github.com/Abubakarnofal03/C-_projects.git"><span class="top-key"></span><span class="text">Projects</span><span class="bottom-key-1"></span><span class="bottom-key-2"></span></a></li>
+            <li><a class="fancy" href="#"><span class="top-key"></span><span class="text">Resume</span><span class="bottom-key-1"></span><span class="bottom-key-2"></span></a></li>
+            <li><a class="fancy" href="contact.html"><span class="top-key"></span><span class="text">Contact</span><span class="bottom-key-1"></span><span class="bottom-key-2"></span></a></li>
+        </ul>
+    </nav>
+
+    <div class="outerdiv">
+        <div class="centraldiv">
+            
+            <h1>Hi, Abubakar Nofal here!<br></h1>
+
+            <div class="colors">
+              <h1 style="color: red;">HTML, </h1>
+              <h1 style="color: blue;">CSS, </h1>
+              <h1 style="color: yellow;">JAVASCRIPT, </h1>
+              <h1 style="color: purple;">BS</h1>
+            </div>
+            
+            <div class="innerpdiv">
+              <p>Welcome to my website!!!!!!!</p>
+          </div>
+           
+        </div>
+    </div>
+    
+    <div class="buttonsbelow">
+        <button class="animated-button">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+              ></path>
+            </svg>
+            <span class="text">Resume</span>
+            
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+              ></path>
+            </svg>
+          </button>
+
+
+          <button class="animated-button">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+              ></path>
+            </svg>
+            <span class="text">MyEducation</span>
+            
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+              ></path>
+            </svg>
+          </button>
+    </div>
+    
+    <!-- Circle representing cursor movement -->
+    <div class="cursor"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var cursor = document.querySelector('.cursor');
+
+            document.addEventListener('mousemove', function(event) {
+                // Get the cursor position
+                var x = event.clientX;
+                var y = event.clientY;
+
+                // Update the position of the circle
+                cursor.style.left = x + 'px';
+                cursor.style.top = y + 'px';
+            });
+        });
+    </script>
+</body>
+</html>
